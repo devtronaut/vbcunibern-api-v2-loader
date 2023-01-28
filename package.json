@@ -3,7 +3,23 @@
   "version": "0.0.1",
   "description": "This service loads the data from the Swiss Volley Web Service, extracts and restructures the required attributes and persists them in a MongoDB Atlas database instance.",
   "main": "index.js",
-  "repository": "git@github.com:devtronaut/vbcunibern-api-v2-loader.git",
+  "repository": {
+    "url": "git@github.com:devtronaut/vbcunibern-api-v2-loader.git",
+    "type": "git"
+  },
   "author": "Devtronaut, devtronaut@hotmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./build/index.js",
+    "build:start": "yarn build && yarn start",
+    "dev": "ts-node ./src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
 }
