@@ -1,0 +1,9 @@
+{
+  "name": "vbcunibern-api-v2-loader",
+  "version": "0.0.1",
+  "description": "This service loads the data from the Swiss Volley Web Service, extracts and restructures the required attributes and persists them in a MongoDB Atlas database instance.",
+  "main": "index.js",
+  "repository": "git@github.com:devtronaut/vbcunibern-api-v2-loader.git",
+  "author": "Devtronaut, devtronaut@hotmail.com",
+  "license": "MIT"
+}
