@@ -1,13 +1,16 @@
 {
-	"name": "Node.js & TypeScript",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
-	"features": {
-		"ghcr.io/devcontainers/features/azure-cli:1": {},
-		"ghcr.io/devcontainers-contrib/features/mongosh-homebrew:1": {},
-		"ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
-	},
+	"name": "vbcunibern-api-v2-loader",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "application",
+	"workspaceFolder": "/workspace",
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"mikestead.dotenv",
+		"esbenp.prettier-vscode"
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install",
-	"settings": {
-		"git.path": "/usr/bin/git"
-	}
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
 }

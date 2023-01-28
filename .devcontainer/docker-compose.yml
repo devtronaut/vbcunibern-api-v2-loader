@@ -1,0 +1,29 @@
+version: '3.9'
+    
+services:
+  application:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # [Choice] Node.js version: 18, 16, 14, 12, 10
+        VARIANT: 18
+        # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
+        USER_UID: 1000
+        USER_GID: 1000
+
+    volumes:
+      # VSCode workspace (DO NOT REMOVE THIS)
+      - ..:/workspace:cached
+      # Bind the SSH folder to access git remotes
+      - ~/.ssh:/home/node/.ssh:ro
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Uncomment the next line to use a non-root user for all processes.
+    user: node
+
+    env_file:
+      - ./workspace.env
+
