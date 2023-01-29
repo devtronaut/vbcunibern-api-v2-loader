@@ -13,7 +13,10 @@ const loaderConfig: LoaderConfig = {
   DB_NAME: envVars.DB_NAME,
   DB_USER: isProd? envVars.DB_USER : envVars.DB_USER_DEV,
   DB_PASS: isProd? envVars.DB_PASS : envVars.DB_PASS_DEV,
-  GAMES_COLLECTION: envVars.GAMES_COLLECTION
+  GAMES_COLLECTION: envVars.GAMES_COLLECTION,
+  API_GAMES_ENDPOINT: envVars.API_GAMES_ENDPOINT,
+  API_RANKINGS_ENDPOINT: envVars.API_RANKINGS_ENDPOINT,
+  API_KEY: envVars.API_KEY
 }
 
 export {loaderConfig}

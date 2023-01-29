@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@types/node": "^18.11.18",
+    "axios": "^1.2.6",
     "dotenv": "^16.0.3",
     "joi": "^17.7.0",
     "mongoose": "^6.9.0",

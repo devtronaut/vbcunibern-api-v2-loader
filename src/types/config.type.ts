@@ -4,7 +4,10 @@ interface LoaderConfig {
   DB_NAME: string,
   GAMES_COLLECTION: string,
   DB_USER: string,
-  DB_PASS: string
+  DB_PASS: string,
+  API_GAMES_ENDPOINT: string,
+  API_RANKINGS_ENDPOINT: string,
+  API_KEY: string
 }
 
 interface LoaderEnvs extends LoaderConfig{

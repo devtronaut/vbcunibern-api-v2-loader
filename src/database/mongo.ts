@@ -4,11 +4,13 @@ let dbConnection: mongoose.Connection | null = null;
 
 const getConnection = async (url: string, dbName: string, user: string, pass: string): Promise<mongoose.Connection> => {
   return new Promise((resolve, reject) => {
+    // Resolve with existing connection if possible
     if(dbConnection !== null){
       console.log(`Using existing connection to mongo database: ${dbConnection.db.databaseName}`);
       resolve(dbConnection);
     }
 
+    // Set the credentials for the connection and the database name
     const mongoConOptions: mongoose.ConnectOptions = {
       dbName,
       user,
