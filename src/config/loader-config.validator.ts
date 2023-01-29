@@ -10,7 +10,12 @@ const envVarsSchema: Joi.ObjectSchema<LoaderEnvs> = Joi.object()
   .keys({
    NODE_ENV: nodeEnvValidator,
    MONGO_URI: dbConnectionValidator, 
-   MONGO_URI_DEV: dbConnectionValidator
+   MONGO_URI_DEV: dbConnectionValidator,
+   DB_NAME: Joi.string().required(),
+   DB_USER: Joi.string().required(),
+   DB_PASS: Joi.string().required(),
+   DB_USER_DEV: Joi.string().required(),
+   DB_PASS_DEV: Joi.string().required(),
   }).unknown();
 
 function getValidatedConfig(): LoaderEnvs {

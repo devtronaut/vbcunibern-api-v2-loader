@@ -12,7 +12,9 @@
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
     // Mongo express port
-    8081
+    8081,
+		// Mongo Port
+		27017
   ],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install",
