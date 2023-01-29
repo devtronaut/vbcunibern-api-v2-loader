@@ -1,29 +1,15 @@
-import Joi from "joi";
-import { LoaderConfig } from "../types/config.type";
+import * as dotenv from 'dotenv';
+import { LoaderConfig, LoaderEnvs } from '../types/config.type';
+import { getValidatedConfig } from './loader-config.validator';
 
-const nodeEnvValidator = Joi.string().valid('production', 'development', 'test').required();
+dotenv.config();
 
-const dbConnectionPattern = /^(mongodb:\/\/).*$/;
-const dbConnectionValidator = Joi.string().regex(dbConnectionPattern);
+const envVars: LoaderEnvs = getValidatedConfig();
+const isProd: boolean = envVars.NODE_ENV === 'production';
 
-const envVarsSchema: Joi.ObjectSchema<LoaderConfig> = Joi.object()
-  .keys({
-   NODE_ENV: nodeEnvValidator,
-   MONGO_URI: dbConnectionValidator, 
-   MONGO_URI_DEV: dbConnectionValidator
-  }).unknown();
-
-function getValidatedConfig(): LoaderConfig {
-  const {value: envVars, error } = envVarsSchema
-    .prefs({errors: {label: 'key'}})
-    .validate(process.env);
-
-  if(error){
-    throw new Error(`Config validation error: ${error.message}`)
-  }
-
-  return envVars;
+const loaderConfig: LoaderConfig = {
+  NODE_ENV: envVars.NODE_ENV,
+  MONGO_URI: isProd? envVars.MONGO_URI : envVars.MONGO_URI_DEV
 }
 
-export {getValidatedConfig}
-
+export {loaderConfig}
