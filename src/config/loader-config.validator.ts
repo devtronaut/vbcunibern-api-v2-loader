@@ -1,19 +1,19 @@
 import Joi from "joi";
-import { LoaderConfig } from "../types/config.type";
+import { LoaderEnvs } from "../types/config.type";
 
 const nodeEnvValidator = Joi.string().valid('production', 'development', 'test').required();
 
 const dbConnectionPattern = /^(mongodb:\/\/).*$/;
 const dbConnectionValidator = Joi.string().regex(dbConnectionPattern);
 
-const envVarsSchema: Joi.ObjectSchema<LoaderConfig> = Joi.object()
+const envVarsSchema: Joi.ObjectSchema<LoaderEnvs> = Joi.object()
   .keys({
    NODE_ENV: nodeEnvValidator,
    MONGO_URI: dbConnectionValidator, 
    MONGO_URI_DEV: dbConnectionValidator
   }).unknown();
 
-function getValidatedConfig(): LoaderConfig {
+function getValidatedConfig(): LoaderEnvs {
   const {value: envVars, error } = envVarsSchema
     .prefs({errors: {label: 'key'}})
     .validate(process.env);
