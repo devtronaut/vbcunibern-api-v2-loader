@@ -1,5 +1,5 @@
-import Joi from "joi";
-import { LoaderEnvs } from "../types/config.type";
+import Joi from 'joi';
+import { LoaderEnvs } from '../types/config.type';
 
 const nodeEnvValidator = Joi.string().valid('production', 'development', 'test').required();
 

@@ -1,4 +1,4 @@
-import mongoose, { Connection } from "mongoose";
+import mongoose, { Connection } from 'mongoose';
 
 const getConnection = async (url: string): Promise<Connection> => {
   return new Promise((resolve, reject) => {

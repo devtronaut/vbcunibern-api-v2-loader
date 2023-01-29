@@ -1,7 +1,7 @@
-import { loaderConfig } from "./config/loader-config";
-import { getConnection } from "./persistence/mongo";
+import { loaderConfig } from './config/loader-config';
+import { getConnection } from './persistence/mongo';
 
-console.log("Hello World");
+console.log('Hello World');
 
 getConnection(loaderConfig.MONGO_URI)
   .then(() => console.log('Success'))
