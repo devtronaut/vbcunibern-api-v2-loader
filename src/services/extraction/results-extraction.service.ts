@@ -18,10 +18,10 @@ export class ResultsExtractionService {
    * Get array of cleansed data for all game results.
    * @returns Array of ResultDTO
    */
-  getGameResults = (): ResultDTO[] => {
+  getGameResults = (): Promise<ResultDTO[]> => {
     const cleanedResults: ResultDTO[] = [];
 
-    this.gamesFetcher.getGameResultsAndDates().then((gameResultsAndDates) => {
+    return this.gamesFetcher.getGameResultsAndDates().then((gameResultsAndDates) => {
       const [results, _] = gameResultsAndDates;
 
       for (let result of results) {
@@ -51,11 +51,12 @@ export class ResultsExtractionService {
           }
         })
       }
+
+      return Promise.resolve(cleanedResults);
     }).catch(err => {
       this.logger.error(err);
+      return Promise.reject(err);
     });
-
-    return cleanedResults;
   }
 
   /**

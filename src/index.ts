@@ -7,5 +7,5 @@ console.log('Service started');
 getConnection(loaderConfig.MONGO_URI, loaderConfig.DB_NAME, loaderConfig.DB_USER, loaderConfig.DB_PASS);
 
 const resultsExtractionService = new ResultsExtractionService()
-console.log("Played Games: ", resultsExtractionService.getGameResults().length)
+resultsExtractionService.getGameResults().then(results => console.log(`Games Played: ${results.length}`)).catch(err => console.error(err));
 
