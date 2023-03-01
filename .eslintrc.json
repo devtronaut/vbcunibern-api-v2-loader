@@ -9,9 +9,5 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "ignorePatterns": [
-    // ignore mocks server files/ directory contents
-    "mocks*"
-  ],
   "rules": {}
 }
