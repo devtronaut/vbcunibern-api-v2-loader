@@ -18,7 +18,7 @@ export class ResultsExtractionService {
    * Get array of cleansed data for all game results.
    * @returns Array of ResultDTO
    */
-  getGameResults = (): Promise<ResultDTO[]> => {
+  getGameResults = async (): Promise<ResultDTO[]> => {
     const cleanedResults: ResultDTO[] = [];
 
     return this.gamesFetcher.getGameResultsAndDates().then((gameResultsAndDates) => {

@@ -16,7 +16,7 @@ export interface ResultDTO {
   // unique id
   uid: string,
 
-  // id for all results of this team (not unique)
+  // grouping id for all results of this team (not unique)
   teamId: string,
   league: string,
 

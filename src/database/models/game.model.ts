@@ -1,14 +1,14 @@
 import { model, Model, Schema } from 'mongoose';
 import { loaderConfig } from '../../config/loader-config';
 
-export interface IGame{
+interface IGame{
   id: string,
   date: Date,
   league: string,
   opponent: string,
   mode: string,
   gametype: string,
-  location: string 
+  location: string
 }
 
 const gameSchema: Schema =  new Schema<IGame>({
